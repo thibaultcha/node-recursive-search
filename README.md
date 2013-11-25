@@ -1,22 +1,22 @@
 # node-recursive-exists
 
-[![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-exists.png)](https://travis-ci.org/thibaultCha/node-recursive-exists) 
+[![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) 
 
 Recursively search a file in given directory.
 
 ### Usage
 
 ```javascript
-  var exists = require('recursive-exists')
+  var search = require('recursive-search')
   
-  var results = exists.recursiveExistsSync('foo.txt', __dirname + '/dir')
+  var results = search.recursiveSearchSync('foo.txt', __dirname + '/dir')
   if (results.length > 0) {
   	// no file
   } else {
     // results
   }
 
-  exists.recursiveExists('foo.txt', __dirname + '/dir', function(err, result){
+  search.recursiveSearch('foo.txt', __dirname + '/dir', function(err, result){
     if (err) throw err
     // result
   }, function(results){
