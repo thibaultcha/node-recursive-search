@@ -1,9 +1,10 @@
 fs   = require 'fs'
 path = require 'path'
+dive = require 'dive'
 
 module.exports =
 
-    recursiveExistsSync: (filename, dir) ->
+    recursiveSearchSync: (filename, dir) ->
         matches = []
         f = ((dir) ->
             list = fs.readdirSync dir
@@ -25,3 +26,15 @@ module.exports =
         f dir
 
         matches
+
+    recursiveSearch: (filename, dir, callback, complete) ->
+        results = []
+        (->
+            dive dir, (err, file) ->
+                return callback err if err
+                if path.basename(file) is filename
+                    results.push file
+                    callback null, file
+            , ->
+                complete(results)
+        )()

@@ -2,13 +2,26 @@
 
 [![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-exists.png)](https://travis-ci.org/thibaultCha/node-recursive-exists) 
 
-Recursively search a file in given directory
+Recursively search a file in given directory.
 
-### Example
+### Usage
 
 ```javascript
   var exists = require('recursive-exists')
-  // todo
+  
+  var results = exists.recursiveExistsSync('foo.txt', __dirname + '/dir')
+  if (results.length > 0) {
+  	// no file
+  } else {
+    // results
+  }
+
+  exists.recursiveExists('foo.txt', __dirname + '/dir', function(err, result){
+    if (err) throw err
+    // result
+  }, function(results){
+    // complete
+})
 ```
 
 ## Licence

@@ -1,22 +1,30 @@
 {
-  "name": "recursive-exists",
+  "name": "recursive-search",
   "author": "Thibault Charbonnier <thibaultcha@me.com>",
   "version": "0.0.1",
   "description": "Recursively search a file in given directory",
+  "keywords": [
+    "recursive",
+    "file",
+    "search",
+    "exists"
+  ],
+  "license": "MIT",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thibaultCha/node-recursive-exists.git"
+    "url": "https://github.com/thibaultCha/node-recursive-search.git"
   },
   "dependencies": {
-    "coffee-script": "*"
+    "coffee-script": "1.6.x",
+    "dive": "0.3.x"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "blanket": "*"
+    "mocha": "1.1.x",
+    "should": "2.1.x",
+    "blanket": "1.1.x"
   },
   "engines": {
     "node": "=>0.9.12"
