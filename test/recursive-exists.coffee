@@ -1,6 +1,7 @@
 should = require 'should'
 fs     = require 'fs'
 exists = require '../lib/recursive-exists'
+
 testfiles = "#{__dirname}/test-files"
 
 describe 'node-recursive-exists.js', ->

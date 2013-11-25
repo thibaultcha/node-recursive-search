@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/thibaultCha/node-recursive-exists.git"
   },
   "dependencies": {
     "coffee-script": "*"
@@ -19,6 +19,6 @@
     "blanket": "*"
   },
   "engines": {
-    "node": "0.10.21"
+    "node": "=>0.9.12"
   }
 }

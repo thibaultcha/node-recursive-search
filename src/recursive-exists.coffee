@@ -5,7 +5,6 @@ module.exports =
 
     recursiveExistsSync: (filename, dir) ->
         matches = []
-
         f = ((dir) ->
             list = fs.readdirSync dir
             i = 0
