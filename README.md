@@ -1,8 +1,14 @@
-# node-recursive-exists
+# node-recursive-search
 
 [![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) 
 
 Recursively search a file in given directory.
+
+### Install
+
+```
+$ npm install recursive-search
+```
 
 ### Usage
 
@@ -21,7 +27,7 @@ Recursively search a file in given directory.
     // result
   }, function(results){
     // complete
-})
+  })
 ```
 
 ## Licence
