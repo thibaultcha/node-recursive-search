@@ -1,0 +1,24 @@
+{
+  "name": "recursive-exists",
+  "author": "Thibault Charbonnier <thibaultcha@me.com>",
+  "version": "0.0.1",
+  "description": "Recursively search a file in given directory",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "coffee-script": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "blanket": "*"
+  },
+  "engines": {
+    "node": "0.10.21"
+  }
+}
