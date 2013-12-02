@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) 
 
-Recursively search a file in given directory.
+Recursively search a file in given directory from name or RegExp.
 
 ### Install
 

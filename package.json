@@ -2,10 +2,10 @@
   "name": "recursive-search",
   "author": "Thibault Charbonnier <thibaultcha@me.com>",
   "contributors": [
-    "woutervroege"
+    "woutervroege <wouter@woutervroege.nl>"
   ],
   "version": "0.0.2",
-  "description": "Recursively search a file in given directory",
+  "description": "Recursively search a file in given directory from name of RegExp",
   "keywords": [
     "recursive",
     "file",
