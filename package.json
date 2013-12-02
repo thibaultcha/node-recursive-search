@@ -4,7 +4,7 @@
   "contributors": [
     "woutervroege"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recursively search a file in given directory",
   "keywords": [
     "recursive",
