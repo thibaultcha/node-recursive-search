@@ -22,6 +22,10 @@ describe 'node-recursive-search', ->
             results.should.be.an.instanceOf(Array)
             results.length.should.equal 3
 
+            results = search.recursiveSearchSync /.txt/, testfiles
+            results.should.be.an.instanceOf(Array)
+            results.length.should.equal 5
+
         it 'should return absolute path to existing files', ->
             results = search.recursiveSearchSync 'foo.txt', testfiles
             for result in results
@@ -43,6 +47,15 @@ describe 'node-recursive-search', ->
                 results.push result
             , (completeResults) ->
                 results.length.should.be.equal 2
+                completeResults.should.eql results
+                done()
+
+        it 'should return an array with results in complete callback', (done) ->
+            results = []
+            search.recursiveSearch /.txt/, testfiles, (err, result) ->
+                results.push result
+            , (completeResults) ->
+                results.length.should.be.equal 5
                 completeResults.should.eql results
                 done()
 
