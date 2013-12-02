@@ -18,7 +18,8 @@ module.exports =
                     f file
                     next()
                 else
-                    matches.push file if path.basename(file) is filename
+                    condition = (if (filename.constructor.name is "RegExp") then path.basename(file).match(filename) else path.basename(file) is filename)
+                    matches.push file  if condition
                     next()
             )
             next()
@@ -32,9 +33,10 @@ module.exports =
         (->
             dive dir, (err, file) ->
                 return callback err if err
-                if path.basename(file) is filename
-                    results.push file
-                    callback null, file
+                condition = (if (filename.constructor.name is "RegExp") then path.basename(file).match(filename) else path.basename(file) is filename)
+                if condition
+                  matches.push file
+                  callback null, file
             , ->
                 complete(results)
         )()
