@@ -28,6 +28,9 @@ $ npm install recursive-search
   }, function(results){
     // complete
   })
+  
+  // regex support in both functions
+  results = search.recursiveSearchSync(/.txt$/, __dirname + '/dir')
 ```
 
 ## Licence
