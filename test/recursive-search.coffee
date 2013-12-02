@@ -22,6 +22,7 @@ describe 'node-recursive-search', ->
             results.should.be.an.instanceOf(Array)
             results.length.should.equal 3
 
+        it 'should search a file from a RegExp', ->
             results = search.recursiveSearchSync /.txt/, testfiles
             results.should.be.an.instanceOf(Array)
             results.length.should.equal 5
@@ -50,7 +51,7 @@ describe 'node-recursive-search', ->
                 completeResults.should.eql results
                 done()
 
-        it 'should return an array with results in complete callback', (done) ->
+        it 'should search a file from a RegExp', (done) ->
             results = []
             search.recursiveSearch /.txt/, testfiles, (err, result) ->
                 results.push result

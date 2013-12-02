@@ -35,7 +35,7 @@ module.exports =
                 return callback err if err
                 condition = (if (filename.constructor.name is "RegExp") then path.basename(file).match(filename) else path.basename(file) is filename)
                 if condition
-                  matches.push file
+                  results.push file
                   callback null, file
             , ->
                 complete(results)

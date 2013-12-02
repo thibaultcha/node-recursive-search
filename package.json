@@ -1,6 +1,9 @@
 {
   "name": "recursive-search",
   "author": "Thibault Charbonnier <thibaultcha@me.com>",
+  "contributors": [
+    "woutervroege"
+  ],
   "version": "0.0.1",
   "description": "Recursively search a file in given directory",
   "keywords": [
