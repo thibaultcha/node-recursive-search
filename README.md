@@ -1,6 +1,6 @@
 # node-recursive-search
 
-[![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) 
+[![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) [![NPM version](https://badge.fury.io/js/recursive-search.png)](http://badge.fury.io/js/recursive-search)
 
 Recursively search a file in given directory from name or RegExp.
 
