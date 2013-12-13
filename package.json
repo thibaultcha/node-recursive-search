@@ -4,7 +4,7 @@
   "contributors": [
     "woutervroege <wouter@woutervroege.nl>"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Recursively search a file in given directory from name of RegExp",
   "keywords": [
     "recursive",
@@ -26,10 +26,6 @@
   },
   "devDependencies": {
     "mocha": "1.1.x",
-    "should": "2.1.x",
-    "blanket": "1.1.x"
-  },
-  "engines": {
-    "node": "=>0.9.12"
+    "should": "2.1.x"
   }
 }
