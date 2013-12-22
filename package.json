@@ -13,6 +13,7 @@
     "exists"
   ],
   "license": "MIT",
+  "main": "./lib/recursive-search.js",
   "scripts": {
     "test": "make test"
   },
