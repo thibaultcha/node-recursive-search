@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/thibaultCha/node-recursive-search.png)](https://travis-ci.org/thibaultCha/node-recursive-search) [![NPM version](https://badge.fury.io/js/recursive-search.png)](http://badge.fury.io/js/recursive-search)
 
-Recursively search a file in given directory from name or RegExp.
+Recursively search a file in given directory from name or RegExp. Can return dot files or ignore them.
 
 ### Install
 
@@ -10,27 +10,41 @@ Recursively search a file in given directory from name or RegExp.
 $ npm install recursive-search
 ```
 
+### Methods
+
+```javascript
+search.recursiveSearchSync(searchTerm, directory, [options])
+search.recursiveSearch(searchTerm, directory, [options], callback, complete)
+```
+
+Where `searchTerm` can be a `String` or a `RegExp`.
+
 ### Usage
 
 ```javascript
   var search = require('recursive-search')
   
+  // search one file
   var results = search.recursiveSearchSync('foo.txt', __dirname + '/dir')
   if (results.length > 0) {
-  	// no file
+    // no file
   } else {
     // results
   }
 
-  search.recursiveSearch('foo.txt', __dirname + '/dir', function(err, result){
+  // search all files
+  search.recursiveSearch('*', __dirname + '/dir', function(err, result){
     if (err) throw err
     // result
   }, function(results){
     // complete
   })
   
-  // regex support in both functions
+  // search from RegExp
   results = search.recursiveSearchSync(/.txt$/, __dirname + '/dir')
+
+  // hidden files
+  results = search.recursiveSearchSync(/.txt$/, __dirname + '/dir', { all: true }) // return hidden files
 ```
 
 ## Licence

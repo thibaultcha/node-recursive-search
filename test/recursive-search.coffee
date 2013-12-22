@@ -22,6 +22,11 @@ describe 'node-recursive-search', ->
             results.should.be.an.instanceOf(Array)
             results.length.should.equal 3
 
+        it 'should return all files if filename is *', ->
+            results = search.recursiveSearchSync '*', testfiles
+            results.should.be.an.instanceOf(Array)
+            results.length.should.equal 5
+
         it 'should search a file from a RegExp', ->
             results = search.recursiveSearchSync /.txt/, testfiles
             results.should.be.an.instanceOf(Array)
@@ -32,11 +37,19 @@ describe 'node-recursive-search', ->
             for result in results
                 (fs.existsSync result).should.be.ok
 
-    describe 'recursivesearch()', ->
+        it 'should return hidden files if options.all is true', ->
+            options =
+                all: true
+            results = search.recursiveSearchSync '*', testfiles, options
+            results.should.be.an.instanceOf(Array)
+            results.length.should.equal 6
+
+    describe 'recursiveSearch()', ->
 
         it 'should return an empty array if file not found', (done) ->
             results = []
             search.recursiveSearch 'foobar.txt', testfiles, (err, result) ->
+                done err if err
                 results.push result
             , ->
                 results.length.should.be.equal 0
@@ -45,6 +58,7 @@ describe 'node-recursive-search', ->
         it 'should return an array with results in complete callback', (done) ->
             results = []
             search.recursiveSearch 'foo.txt', testfiles, (err, result) ->
+                done err if err
                 results.push result
             , (completeResults) ->
                 results.length.should.be.equal 2
@@ -54,18 +68,29 @@ describe 'node-recursive-search', ->
         it 'should search a file from a RegExp', (done) ->
             results = []
             search.recursiveSearch /.txt/, testfiles, (err, result) ->
+                done err if err
                 results.push result
             , (completeResults) ->
                 results.length.should.be.equal 5
                 completeResults.should.eql results
                 done()
 
-        it 'should return absolute path to existing files',(done) ->
-            results = []
+        it 'should return absolute path to existing files', (done) ->
             search.recursiveSearch 'bar.txt', testfiles, (err, result) ->
-                results.push result
-            , ->
-                for result in results
+                done err if err
+            , (completeResults) ->
+                for result in completeResults
                     (fs.existsSync result).should.be.ok
                 done()
 
+        it 'should return hidden files if options.all is true', (done) ->
+            options =
+                all: true
+            results = []
+            search.recursiveSearch '*', testfiles, options, (err, result) ->
+                done err if err
+                results.push result
+            , (completeResults) ->
+                results.length.should.be.equal 6
+                completeResults.should.eql results
+                done()

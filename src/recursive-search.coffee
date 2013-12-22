@@ -4,7 +4,10 @@ dive = require 'dive'
 
 module.exports =
 
-    recursiveSearchSync: (filename, dir) ->
+    recursiveSearchSync: (filename, dir, options) ->
+        if arguments.length isnt 3
+            options =
+                all: false
         matches = []
         f = ((dir) ->
             list = fs.readdirSync dir
@@ -18,8 +21,14 @@ module.exports =
                     f file
                     next()
                 else
-                    condition = (if (filename.constructor.name is "RegExp") then path.basename(file).match(filename) else path.basename(file) is filename)
-                    matches.push file  if condition
+                    condition = (if (filename.constructor.name is "RegExp") \ 
+                                 then path.basename(file).match(filename) \
+                                 else path.basename(file) is filename)
+                    if condition or filename is '*'
+                        if options.all is false
+                            matches.push file if path.basename(file).charAt(0) isnt '.'
+                        else
+                            matches.push file
                     next()
             )
             next()
@@ -28,15 +37,20 @@ module.exports =
 
         matches
 
-    recursiveSearch: (filename, dir, callback, complete) ->
-        results = []
-        (->
-            dive dir, (err, file) ->
-                return callback err if err
-                condition = (if (filename.constructor.name is "RegExp") then path.basename(file).match(filename) else path.basename(file) is filename)
-                if condition
-                  results.push file
-                  callback null, file
-            , ->
-                complete(results)
-        )()
+    recursiveSearch: (filename, dir, options, callback, complete) ->
+        if arguments.length isnt 5
+            complete = callback
+            callback = options
+            options  =
+                all: false
+        matches = []
+        dive dir, options, (err, file) ->
+            return callback err if err
+            condition = (if (filename.constructor.name is "RegExp") \
+                         then path.basename(file).match(filename) \
+                         else path.basename(file) is filename)
+            if condition or filename is '*'
+                matches.push file
+                callback null, file
+        , ->
+            complete(matches)

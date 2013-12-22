@@ -4,13 +4,14 @@
   "contributors": [
     "woutervroege <wouter@woutervroege.nl>"
   ],
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Recursively search a file in given directory from name of RegExp",
   "keywords": [
     "recursive",
-    "file",
     "search",
-    "exists"
+    "file",
+    "exists",
+    "RegExp"
   ],
   "license": "MIT",
   "main": "./lib/recursive-search.js",
