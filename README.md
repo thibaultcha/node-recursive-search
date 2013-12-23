@@ -19,6 +19,11 @@ search.recursiveSearch(searchTerm, directory, [options], callback, complete)
 
 Where `searchTerm` can be a `String` or a `RegExp`.
 
+#### Options
+
+- `all`: includes hidden files (starting with `.`)
+    - `default`: `false`
+
 ### Usage
 
 ```javascript
