@@ -4,7 +4,7 @@
   "contributors": [
     "woutervroege <wouter@woutervroege.nl>"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursively search a file in given directory from file name or RegExp",
   "keywords": [
     "recursive",
