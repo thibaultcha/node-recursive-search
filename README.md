@@ -13,8 +13,8 @@ $ npm install recursive-search
 ### Methods
 
 ```javascript
-search.recursiveSearchSync(searchTerm, directory, [options])
-search.recursiveSearch(searchTerm, directory, [options], callback, complete)
+recursiveSearchSync(searchTerm, directory, [options])
+recursiveSearch(searchTerm, directory, [options], callback, complete)
 ```
 
 Where `searchTerm` can be a `String` or a `RegExp`.
@@ -24,11 +24,11 @@ Where `searchTerm` can be a `String` or a `RegExp`.
 - `all`: includes hidden files (starting with `.`)
     - `default`: `false`
 
-### Usage
+### Example
 
 ```javascript
   var search = require('recursive-search')
-  
+
   // search one file
   var results = search.recursiveSearchSync('foo.txt', __dirname + '/dir')
   if (results.length > 0) {
@@ -38,21 +38,21 @@ Where `searchTerm` can be a `String` or a `RegExp`.
   }
 
   // search all files
-  search.recursiveSearch('*', __dirname + '/dir', function(err, result){
+  search.recursiveSearch('*', __dirname + '/dir', function (err, result) {
     if (err) throw err
     // result
   }, function(results){
     // complete
   })
-  
-  // search from RegExp
+
+  // search with RegExp
   results = search.recursiveSearchSync(/.txt$/, __dirname + '/dir')
 
-  // hidden files
+  // include hidden files
   results = search.recursiveSearchSync(/.txt$/, __dirname + '/dir', { all: true }) // return hidden files
 ```
 
-## Licence
+## License
 
 Copyright (C) 2013 by Thibault Charbonnier.
 
